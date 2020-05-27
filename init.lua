@@ -1,7 +1,8 @@
+require('spaces')
 -- Screens
 local main_monitor = "BenQ EW3270U"
 local second_monitor = "DELL U2718Q"
-
+local laptopmonitor = "Color LCD"
 -------------------------------------------------------------------------------
 -- real configuration
 -------------------------------------------------------------------------------
@@ -27,6 +28,7 @@ local commandctrl = {"cmd","ctrl"}
 local optionctrl = {"alt","ctrl"}
 local commandctrlshift = {"command","ctrl","⇧"}
 
+
 -- find applicaiton names hs.fnutils.each(hs.application.runningApplications(), function(app) print(app:title()) end)
 -- inspired on https://github.com/rtoshiro/hammerspoon-init/blob/master/init.lua
 local layout_code = {
@@ -39,15 +41,15 @@ local layout_code = {
   },{
     name = {"Terminal"},
     func = function(index, win)
-        win:moveToScreen(hs.screen.get(second_monitor))
-        pushWindow(win,0,0.5,1,0.5)
+        win:moveToScreen(hs.screen.get(laptopmonitor))
+        pushWindow(win,0,0,1,1)
     end
   },
   {
     name = {"Brave Browser"},
     func = function(index, win)
       win:moveToScreen(hs.screen.get(second_monitor))
-      pushWindow(win,0,0,1,0.5)
+      pushWindow(win,0,0,1,1)
     end
   }
 }
@@ -73,6 +75,13 @@ local layout_messaging = {
     func = function(index, win)
         win:moveToScreen(hs.screen.get(second_monitor))
         pushWindow(win,0,0,1,1)
+    end
+  },
+  {
+    name = {"Finder"},
+    func = function(index, win)
+      win:moveToScreen(hs.screen.get(laptopmonitor))
+      pushWindow(win, 0,0,1,1)
     end
   }
 }
@@ -109,7 +118,14 @@ local layout_research = {
         win:moveToScreen(hs.screen.get(second_monitor))
         pushWindow(win,0,0,1,1)
     end
+  },{
+    name = {"Terminal"},
+    func = function(index, win)
+        win:moveToScreen(hs.screen.get(laptopmonitor))
+        pushWindow(win,0,0,1,1)
+    end
   }
+
 }
 local layout_search = {
 
@@ -126,7 +142,14 @@ local layout_search = {
         win:moveToScreen(hs.screen.get(second_monitor))
         pushWindow(win,0,0,1,1)
     end
+  },{
+    name = {"Terminal"},
+    func = function(index, win)
+        win:moveToScreen(hs.screen.get(laptopmonitor))
+        pushWindow(win,0,0,1,1)
+    end
   }
+
 }
 
 local layout_thesis = {
@@ -151,7 +174,14 @@ local layout_thesis = {
         win:moveToScreen(hs.screen.get(main_monitor))
         pushWindow(win,0,0,0.5,1)
     end
+  },{
+    name = {"Terminal"},
+    func = function(index, win)
+        win:moveToScreen(hs.screen.get(laptopmonitor))
+        pushWindow(win,0,0,1,1)
+    end
   }
+
 }
 -------------------------------------------------------------------------------
 -- positioning windows on screen
@@ -214,12 +244,14 @@ end)
 
 -- launch and focus applications with below shortkey
 hs.fnutils.each({
-  { key = ";", app = "Airmail" },
-  { key = "'", app = "Whatsapp" },
+  { key = "a", app = "Airmail" },
+  { key = ";", app = "Whatsapp" },
   { key = "k", app = "Todoist" },
   { key = "j", app = "Terminal" },
   { key = "b", app = "Brave Browser" },
-  { key = "l", app = "Calender" }
+  { key = "l", app = "Calender" },
+  { key = "p", app = "Music" },
+  { key = "'", app = "Finder" }
 }, function(object)
     hs.hotkey.bind(mash_apps, object.key, function() ext.app.forceLaunchOrFocus(object.app) end) 
 end)
