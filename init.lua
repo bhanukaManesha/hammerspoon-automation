@@ -46,7 +46,7 @@ local layout_code = {
     end
   },
   {
-    name = {"Brave Browser"},
+    name = {"Safari"},
     func = function(index, win)
       win:moveToScreen(hs.screen.get(second_monitor))
       pushWindow(win,0,0,1,1)
@@ -64,14 +64,14 @@ local layout_messaging = {
     end
   },
   {
-    name = {"Airmail"},
+    name = {"Mail"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(main_monitor))
         pushWindow(win,0.5,0,0.5,1) 
     end
   },
   {
-    name = {"Brave Browser"},
+    name = {"Safari"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(second_monitor))
         pushWindow(win,0,0,1,1)
@@ -89,7 +89,7 @@ local layout_messaging = {
 local layout_entertainment = {
 
   {
-    name = {"Brave Browser"},
+    name = {"Safari"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(main_monitor))
         pushWindow(win,0,0,1,1) 
@@ -106,7 +106,7 @@ local layout_research = {
     end
   },
   {
-    name = {"Brave Browser"},
+    name = {"Safari"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(main_monitor))
         pushWindow(win,0.5,0,0.5,1)
@@ -130,7 +130,7 @@ local layout_research = {
 local layout_search = {
 
   {
-    name = {"Brave Browser"},
+    name = {"Safari"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(main_monitor))
         pushWindow(win,0,0,1,1) 
@@ -162,7 +162,7 @@ local layout_thesis = {
     end
   },
   {
-    name = {"Brave Browser"},
+    name = {"Safari"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(second_monitor))
         pushWindow(win,0,0,1,1)
@@ -244,14 +244,13 @@ end)
 
 -- launch and focus applications with below shortkey
 hs.fnutils.each({
-  { key = "a", app = "Airmail" },
-  { key = ";", app = "Whatsapp" },
-  { key = "k", app = "Todoist" },
+  { key = "u", app = "Mail" },
+  { key = "i", app = "Todoist" },
+  { key = "k", app = "Safari" },
   { key = "j", app = "Terminal" },
-  { key = "b", app = "Brave Browser" },
-  { key = "l", app = "Calender" },
-  { key = "p", app = "Music" },
-  { key = "'", app = "Finder" }
+  { key = "o", app = "Calender" },
+  { key = "m", app = "Music" },
+  { key = "l", app = "Finder" }
 }, function(object)
     hs.hotkey.bind(mash_apps, object.key, function() ext.app.forceLaunchOrFocus(object.app) end) 
 end)
