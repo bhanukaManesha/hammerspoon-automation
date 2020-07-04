@@ -33,7 +33,7 @@ local commandctrlshift = {"command","ctrl","⇧"}
 -- inspired on https://github.com/rtoshiro/hammerspoon-init/blob/master/init.lua
 local layout_code = {
   {
-    name = {"Visual Studio Code"},
+    name = {"TextMate"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(main_monitor))
         pushWindow(win,0,0,1,1)
@@ -41,7 +41,24 @@ local layout_code = {
   },{
     name = {"Terminal"},
     func = function(index, win)
-        win:moveToScreen(hs.screen.get(laptopmonitor))
+        win:moveToScreen(hs.screen.get(second_monitor))
+        pushWindow(win,0,0,0.5,1)
+    end
+  },
+  {
+    name = {"Safari"},
+    func = function(index, win)
+      win:moveToScreen(hs.screen.get(second_monitor))
+      pushWindow(win,0.5,0,0.5,1)
+    end
+  }
+}
+
+local layout_ios = {
+  {
+    name = {"Xcode-beta"},
+    func = function(index, win)
+        win:moveToScreen(hs.screen.get(main_monitor))
         pushWindow(win,0,0,1,1)
     end
   },
@@ -49,10 +66,11 @@ local layout_code = {
     name = {"Safari"},
     func = function(index, win)
       win:moveToScreen(hs.screen.get(second_monitor))
-      pushWindow(win,0,0,1,1)
+      pushWindow(win,0,0,0.75,1)
     end
   }
 }
+
 
 local layout_messaging = {
 
@@ -74,14 +92,14 @@ local layout_messaging = {
     name = {"Safari"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(second_monitor))
-        pushWindow(win,0,0,1,1)
+        pushWindow(win,0,0,0.5,1)
     end
   },
   {
     name = {"Finder"},
     func = function(index, win)
-      win:moveToScreen(hs.screen.get(laptopmonitor))
-      pushWindow(win, 0,0,1,1)
+      win:moveToScreen(hs.screen.get(second_monitor))
+      pushWindow(win, 0.5,0,0.5,1)
     end
   }
 }
@@ -116,13 +134,13 @@ local layout_research = {
     name = {"Notion"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(second_monitor))
-        pushWindow(win,0,0,1,1)
+        pushWindow(win,0,0,0.75,1)
     end
   },{
     name = {"Terminal"},
     func = function(index, win)
-        win:moveToScreen(hs.screen.get(laptopmonitor))
-        pushWindow(win,0,0,1,1)
+        win:moveToScreen(hs.screen.get(second_monitor))
+        pushWindow(win,0.75,0,0.25,1)
     end
   }
 
@@ -142,12 +160,6 @@ local layout_search = {
         win:moveToScreen(hs.screen.get(second_monitor))
         pushWindow(win,0,0,1,1)
     end
-  },{
-    name = {"Terminal"},
-    func = function(index, win)
-        win:moveToScreen(hs.screen.get(laptopmonitor))
-        pushWindow(win,0,0,1,1)
-    end
   }
 
 }
@@ -155,7 +167,7 @@ local layout_search = {
 local layout_thesis = {
 
   {
-    name = {"Visual Studio Code"},
+    name = {"TextMate"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(main_monitor))
         pushWindow(win,0.5,0,0.5,1) 
@@ -165,7 +177,7 @@ local layout_thesis = {
     name = {"Safari"},
     func = function(index, win)
         win:moveToScreen(hs.screen.get(second_monitor))
-        pushWindow(win,0,0,1,1)
+        pushWindow(win,0,0,0.5,1)
     end
   },
   {
@@ -177,8 +189,8 @@ local layout_thesis = {
   },{
     name = {"Terminal"},
     func = function(index, win)
-        win:moveToScreen(hs.screen.get(laptopmonitor))
-        pushWindow(win,0,0,1,1)
+        win:moveToScreen(hs.screen.get(second_monitor))
+        pushWindow(win,0.5,0,0.5,1)
     end
   }
 
@@ -216,11 +228,14 @@ hs.hotkey.bind(shiftpushkey, "down", function() hs.window.focusedWindow():moveOn
 hs.hotkey.bind(shiftpushkey, "up", function() hs.window.focusedWindow():moveOneScreenNorth() end)
 
 hs.hotkey.bind(commandoption, "1", function() applyLayouts(layout_code) end)
-hs.hotkey.bind(commandoption, "2", function() applyLayouts(layout_search) end)
-hs.hotkey.bind(commandoption, "3", function() applyLayouts(layout_research) end)
-hs.hotkey.bind(commandoption, "4", function() applyLayouts(layout_thesis) end)
-hs.hotkey.bind(commandoption, "5", function() applyLayouts(layout_messaging) end)
-hs.hotkey.bind(commandoption, "6", function() applyLayouts(layout_entertainment) end)
+hs.hotkey.bind(commandoption, "2", function() applyLayouts(layout_ios) end)
+hs.hotkey.bind(commandoption, "3", function() applyLayouts(layout_messaging) end)
+hs.hotkey.bind(commandoption, "4", function() applyLayouts(layout_search) end)
+hs.hotkey.bind(commandoption, "5", function() applyLayouts(layout_research) end)
+hs.hotkey.bind(commandoption, "6", function() applyLayouts(layout_thesis) end)
+hs.hotkey.bind(commandoption, "7", function() applyLayouts(layout_entertainment) end)
+
+
 
 hs.hotkey.bind(mash, "d", function()
   --for win in hs.window.allWindows() do
@@ -246,11 +261,13 @@ end)
 hs.fnutils.each({
   { key = "u", app = "Mail" },
   { key = "i", app = "Todoist" },
-  { key = "k", app = "Safari" },
-  { key = "j", app = "Terminal" },
   { key = "o", app = "Calender" },
+  { key = "j", app = "Terminal" },
+  { key = "p", app = "Xcode-beta" },
+  { key = "k", app = "Safari" },
+  { key = "l", app = "Finder" },
   { key = "m", app = "Music" },
-  { key = "l", app = "Finder" }
+
 }, function(object)
     hs.hotkey.bind(mash_apps, object.key, function() ext.app.forceLaunchOrFocus(object.app) end) 
 end)
