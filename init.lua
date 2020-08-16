@@ -7,8 +7,8 @@ local laptopmonitor = "Color LCD"
 -- real configuration
 -------------------------------------------------------------------------------
 -- variable config
-hs.window.animationDuration = 0
-hs.window.setShadows(false)
+hs.window.animationDuration = 0.2
+hs.window.setShadows(true)
 
 -- extensions, available in hammerspoon console
 ext = {
