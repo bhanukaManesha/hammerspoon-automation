@@ -7,7 +7,7 @@ local laptopmonitor = "Color LCD"
 -- real configuration
 -------------------------------------------------------------------------------
 -- variable config
-hs.window.animationDuration = 0.2
+hs.window.animationDuration = 0
 hs.window.setShadows(true)
 
 -- extensions, available in hammerspoon console
@@ -290,7 +290,7 @@ function push(x, y, w, h)
   f.y = max.y + (max.h*y)
   f.w = max.w*w
   f.h = max.h*h
-  win:setFrame(f)
+  win:setFrame(f, 0.1)
 end
 
 function pushWindow(win, x, y, w, h)
