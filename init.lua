@@ -1,4 +1,6 @@
 require('spaces')
+require ('amphetamine')
+
 -- Screens
 local main_monitor = "BenQ EW3270U"
 local second_monitor = "DELL U2718Q"
