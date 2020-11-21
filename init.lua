@@ -229,13 +229,13 @@ hs.hotkey.bind(shiftpushkey, "right", function() hs.window.focusedWindow():moveO
 hs.hotkey.bind(shiftpushkey, "down", function() hs.window.focusedWindow():moveOneScreenSouth() end)
 hs.hotkey.bind(shiftpushkey, "up", function() hs.window.focusedWindow():moveOneScreenNorth() end)
 
-hs.hotkey.bind(commandoption, "1", function() applyLayouts(layout_code) end)
-hs.hotkey.bind(commandoption, "2", function() applyLayouts(layout_ios) end)
-hs.hotkey.bind(commandoption, "3", function() applyLayouts(layout_messaging) end)
-hs.hotkey.bind(commandoption, "4", function() applyLayouts(layout_search) end)
-hs.hotkey.bind(commandoption, "5", function() applyLayouts(layout_research) end)
-hs.hotkey.bind(commandoption, "6", function() applyLayouts(layout_thesis) end)
-hs.hotkey.bind(commandoption, "7", function() applyLayouts(layout_entertainment) end)
+-- hs.hotkey.bind(commandoption, "1", function() applyLayouts(layout_code) end)
+-- hs.hotkey.bind(commandoption, "2", function() applyLayouts(layout_ios) end)
+-- hs.hotkey.bind(commandoption, "3", function() applyLayouts(layout_messaging) end)
+-- hs.hotkey.bind(commandoption, "4", function() applyLayouts(layout_search) end)
+-- hs.hotkey.bind(commandoption, "5", function() applyLayouts(layout_research) end)
+-- hs.hotkey.bind(commandoption, "6", function() applyLayouts(layout_thesis) end)
+-- hs.hotkey.bind(commandoption, "7", function() applyLayouts(layout_entertainment) end)
 
 
 
@@ -292,7 +292,7 @@ function push(x, y, w, h)
   f.y = max.y + (max.h*y)
   f.w = max.w*w
   f.h = max.h*h
-  win:setFrame(f, 0.1)
+  win:setFrame(f)
 end
 
 function pushWindow(win, x, y, w, h)
