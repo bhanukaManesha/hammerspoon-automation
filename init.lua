@@ -220,8 +220,8 @@ hs.hotkey.bind(commandoption,"down", function() push(0,0.5,1,0.5) end)          
 
 hs.hotkey.bind(commandctrlshift,"space", function() push(0,0.1, 1, 0.8) end)       -- middle
 
-hs.hotkey.bind(commandoption,"space", function() push(0,0,1,1) end)           -- full screen
-hs.hotkey.bind(mash, "space", function() push(0.05,0.05,0.9,0.9) end)
+hs.hotkey.bind(mash,"space", function() push(0,0,1,1) end)           -- full screen
+hs.hotkey.bind(commandoption, "space", function() push(0.05,0.05,0.9,0.9) end)
 
 -- Move a window between monitors
 hs.hotkey.bind(shiftpushkey, "left", function() hs.window.focusedWindow():moveOneScreenWest() end)
