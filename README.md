@@ -22,7 +22,7 @@ Please refer to this [link](https://www.hammerspoon.org).
 
 <tr><td>  <kbd>command</kbd> + <kbd>ctrl</kbd> + <kbd>space</kbd></td> <td>Middle Medium</td> </tr>
 <tr><td>  <kbd>option</kbd> + <kbd>ctrl</kbd> + <kbd>space</kbd></td> <td>Middle Small</td> </tr>
-<tr><td>  <kbd>command</kbd> + <kbd>option</kbd> + <kbd>ctrl</kbd> + <kbd>space</kbd></td> <td>Middle Apple Style</td> </tr>
+<tr><td>  <kbd>command</kbd> + <kbd>option</kbd> + <kbd>ctrl</kbd> + <kbd>space</kbd></td> <td></td>Full Screen</tr>
 
 
 <tr><td>  <kbd>option</kbd> + <kbd>ctrl</kbd> + <kbd>↑</kbd> </td> <td>Top Small</td> </tr>
@@ -33,9 +33,18 @@ Please refer to this [link](https://www.hammerspoon.org).
 <tr><td>  <kbd>command</kbd> + <kbd>option</kbd> + <kbd>↓</kbd> </td> <td>Bottom Medium</td> </tr>
 <tr><td>  <kbd>command</kbd> + <kbd>ctrl</kbd> + <kbd>↓</kbd> </td> <td>Bottom Large</td> </tr>
 
-<tr><td>  <kbd>command</kbd> + <kbd>option</kbd> + <kbd>space</kbd> </td> <td>Full Screen</td> </tr>
+<tr><td>  <kbd>command</kbd> + <kbd>option</kbd> + <kbd>space</kbd> </td> <td>Middle Apple Style</td> </tr>
 
 
+</table>
+
+<hr>
+
+### Desktop spaces arranging commands
+<table>
+<tr><th>Key Combination</th><th>Movement</th></tr>
+<tr><td>  <kbd>command</kbd> + <kbd>option</kbd> + <kbd>shift</kbd> + <kbd>←</kbd> </td> <td>Move to left desktop</td> </tr>
+<tr><td>  <kbd>command</kbd> + <kbd>option</kbd> + <kbd>shift</kbd> + <kbd>→</kbd> </td> <td>Move to right desktop</td> </tr>
 </table>
 
 <hr>
